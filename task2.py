@@ -1,9 +1,13 @@
 import re
 
-def validator():
-    password = input("Input your password")
-    list_of_passwords =password.split(',')
+def input_password():
+    password = input("Input your password: ")
+    password_validator(password)
+    return password
 
+def password_validator(password):
+
+    list_of_passwords =password.split(',')
 
     output_list=[]
     false_output_list = []
@@ -35,13 +39,23 @@ def validator():
 
                 x=False
                 break
-    print(output_list)
-    print(false_output_list)
+    # print(output_list)
+    # print(false_output_list)
+    uotput_print(output_list,false_output_list)
     return output_list, false_output_list
 
 
 
+def uotput_print (output_list, false_output_list):
+    output_list = ",".join(output_list)
+    if false_output_list:
+        false_output_list = ",".join(false_output_list)
+    if output_list:
+        print(f"List of Valid Passwords: {output_list}")
+    if false_output_list:
+        print(f"List of Not Valid Passwords: {false_output_list}")
+    return output_list, false_output_list
 
 
 
-validator()
+input_password()
