@@ -15,7 +15,7 @@ def password_validator(password):
         x = True
         while x:
 
-            if (len(item)<6 or len(item)>20):
+            if (len(item)<4 or len(item)>6):
                 false_output_list.append(item)
                 break
             elif not re.search("[a-z]", item):
@@ -27,7 +27,7 @@ def password_validator(password):
             elif not re.search("[A-Z]", item):
                 false_output_list.append(item)
                 break
-            elif not re.search("[$#@!]", item):
+            elif not re.search("[*#+@]", item):
                 false_output_list.append(item)
                 break
             elif re.search("\s", item):
